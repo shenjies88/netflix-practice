@@ -27,12 +27,12 @@ public class EurekaClientApplication {
 
     @RequestMapping("/hello")
     public String hello() {
-        return  restTemplate.getForEntity("http://eureka-server/hello",String.class).getBody();
+        return restTemplate.getForEntity("http://eureka-serve/hello", String.class).getBody();
     }
 
     @RequestMapping("/")
     public List<String> serviceUrl() {
-        return  discoveryClient.getServices();
+        return discoveryClient.getServices();
     }
 
     public static void main(String[] args) {

@@ -1,10 +1,10 @@
 package com.shenjies88.eurekaserver1;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * @author shenjies88
  */
+@Slf4j
 @RestController
 @SpringBootApplication
 public class EurekaServer1Application {
@@ -32,5 +33,6 @@ public class EurekaServer1Application {
 
     public static void main(String[] args) {
         SpringApplication.run(EurekaServer1Application.class);
+        log.info("服务1启动");
     }
 }
