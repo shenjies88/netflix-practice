@@ -4,5 +4,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka
-    registry-fetch-interval-seconds: 5
+    registry-fetch-interval-seconds: 3
     register-with-eureka: false
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d %clr(%-5p) %clr(${PID:-}){magenta} --- [%t] %clr(%c{10}.%M){cyan} \\(%file:%line\\) %m%n"
