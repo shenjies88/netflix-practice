@@ -27,7 +27,7 @@ public class EurekaClientApplication {
 
     @RequestMapping("/hello")
     public String hello() {
-        return restTemplate.getForEntity("http://eureka-serve/hello", String.class).getBody();
+        return restTemplate.getForEntity("http://eureka-server/hello", String.class).getBody();
     }
 
     @RequestMapping("/")
