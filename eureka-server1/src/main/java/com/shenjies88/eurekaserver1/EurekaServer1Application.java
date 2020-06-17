@@ -1,11 +1,9 @@
 package com.shenjies88.eurekaserver1;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
@@ -22,23 +20,17 @@ import java.util.Random;
 @RestController
 @EnableHystrixDashboard
 @EnableDiscoveryClient
-@EnableCircuitBreaker
 @SpringBootApplication
 public class EurekaServer1Application {
 
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @HystrixCommand(fallbackMethod = "helloFallback")
     @RequestMapping("/hello")
     public String hello() throws InterruptedException {
         int sleepTime = new Random().nextInt(3000);
         Thread.sleep(sleepTime);
         return "i'am server1";
-    }
-
-    public String helloFallback() {
-        return "server1 circuit breaker";
     }
 
     @RequestMapping("/")
