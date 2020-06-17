@@ -41,8 +41,9 @@ public class EurekaClientApplication {
         return restTemplate.getForEntity("http://eureka-server/hello", String.class).getBody();
     }
 
-    public String helloFallBackSecond() {
-        return "两次服务都熔断了";
+    public String helloFallBackSecond(Throwable e) {
+        log.info("异常", e);
+        return "两次调用失败，熔断";
     }
 
     @GetMapping("/")
