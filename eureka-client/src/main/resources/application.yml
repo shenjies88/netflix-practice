@@ -6,8 +6,3 @@ eureka:
     register-with-eureka: false
     serviceUrl:
       defaultZone: http://localhost:1111/eureka
-logging:
-  level:
-    root: info
-  pattern:
-    console: "%d %clr(%-5p) %clr(${PID:-}){magenta} --- [%t] %clr(%c{10}.%M){cyan} \\(%file:%line\\) %m%n"

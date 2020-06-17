@@ -36,8 +36,13 @@ public class EurekaClientApplication {
         return restTemplate.getForEntity("http://eureka-server/hello", String.class).getBody();
     }
 
+    @HystrixCommand(fallbackMethod = "helloFallBackSecond")
     public String helloFallBack() {
-        return "服务繁忙";
+        return restTemplate.getForEntity("http://eureka-server/hello", String.class).getBody();
+    }
+
+    public String helloFallBackSecond() {
+        return "两次服务都熔断了";
     }
 
     @GetMapping("/")
