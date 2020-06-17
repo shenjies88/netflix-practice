@@ -7,16 +7,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author shenjies88
  */
 @Slf4j
 @RestController
+@EnableHystrixDashboard
 @EnableCircuitBreaker
 @SpringBootApplication
 public class EurekaServer2Application {
@@ -26,7 +29,9 @@ public class EurekaServer2Application {
 
     @HystrixCommand(fallbackMethod = "helloFallback")
     @RequestMapping("/hello")
-    public String hello() {
+    public String hello() throws InterruptedException {
+        int sleepTime = new Random().nextInt(3000);
+        Thread.sleep(sleepTime);
         return "i'am server2";
     }
 

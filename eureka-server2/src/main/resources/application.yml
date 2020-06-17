@@ -7,7 +7,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
-hystrix:
-  metrics:
-    polling-interval-ms: 100
 
