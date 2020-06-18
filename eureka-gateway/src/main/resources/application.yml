@@ -11,12 +11,9 @@ eureka:
       defaultZone: http://localhost:1111/eureka
 zuul:
   routes:
-    my-server:
-      path: /my-server/**
-      serviceId: eureka-server
     my-client:
       path: /my-client/**
-      serviceId: my-eureka-client
+      serviceId: eureka-client
 # Hystrix默认的超时时间是1秒，如果超过这个时间未响应，将会进入fallback代码
 hystrix:
   command:

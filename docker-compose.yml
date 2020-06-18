@@ -1,0 +1,55 @@
+version: '3'
+services:
+  eureka-registration-center:
+    image: eureka-registration-center:v1
+    container_name: eureka-registration-center
+    build:
+      context: ./eureka-registration-center/
+      dockerfile: Dockerfile
+    networks:
+      - eureka-net
+  eureka-server1:
+    image: eureka-server1:v1
+    container_name: eureka-server1
+    build:
+      context: ./eureka-server1/
+      dockerfile: Dockerfile
+    depends_on:
+      - eureka-registration-center
+    networks:
+      - eureka-net
+  eureka-server2:
+    image: eureka-server2:v1
+    container_name: eureka-server2
+    build:
+      context: ./eureka-server2/
+      dockerfile: Dockerfile
+    depends_on:
+      - eureka-registration-center
+    networks:
+      - eureka-net
+  eureka-client:
+    image: eureka-client:v1
+    container_name: eureka-client
+    build:
+      context: ./eureka-client/
+      dockerfile: Dockerfile
+    depends_on:
+      - eureka-registration-center
+    networks:
+      - eureka-net
+  eureka-geteway:
+    image: eureka-geteway:v1
+    container_name: eureka-geteway
+    build:
+      context: ./eureka-gateway/
+      dockerfile: Dockerfile
+    ports:
+      - 5555:5555
+    depends_on:
+      - eureka-registration-center
+      - eureka-client
+    networks:
+      - eureka-net
+networks:
+  eureka-net:
