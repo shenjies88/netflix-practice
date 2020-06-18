@@ -32,4 +32,5 @@ eureka-client --> eureka-gateway
 ```
 
 ## 例子
-- `http://localhost`
+- `http://localhost:5555/my-client/client/hello/`
+- `http://localhost:5555/my-client/client/server-list`
