@@ -1,17 +1,22 @@
 server:
-  port: 8080
+  port: 5555
 spring:
   application:
-    name: my-eureka-client
+    name: eureka-gateway
 eureka:
   instance:
     hostname: 127.0.0.1
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka
-feign:
-  hystrix:
-    enabled: true
+zuul:
+  routes:
+    my-server:
+      path: /my-server/**
+      serviceId: eureka-server
+    my-client:
+      path: /my-client/**
+      serviceId: my-eureka-client
 # Hystrix默认的超时时间是1秒，如果超过这个时间未响应，将会进入fallback代码
 hystrix:
   command:
@@ -31,5 +36,4 @@ ribbon:
   MaxAutoRetriesNextServer: 2 # 切换实例的重试次数
 logging:
   root: info
-  com.shenjies88.eurekaclient: debug
-
+  com.shenjies88.eurekagateway: debug

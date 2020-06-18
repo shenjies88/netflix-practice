@@ -7,4 +7,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
+  instance:
+    hostname: 127.0.0.1
 

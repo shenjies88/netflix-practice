@@ -1,6 +1,5 @@
 package com.shenjies88.eurekaclient;
 
-import com.shenjies88.eurekaserverapi.EurekaServerClient;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**
@@ -8,6 +7,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @since 2020/6/17-6:21 PM
  */
 @FeignClient(value = "eureka-server", fallbackFactory = MyEurekaServerClientFallbackFactory.class)
-public interface MyEurekaServerClient extends EurekaServerClient {
+public interface MyEurekaServerClient extends com.shenjies88.eurekaserverapi.EurekaServerClient {
 
 }
