@@ -3,7 +3,6 @@ package com.shenjies88.eurekagateway;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.shenjies88.eurekacommon.exception.AuthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -40,9 +39,10 @@ public class AccessFilter extends ZuulFilter {
         Object accessToken = request.getHeader("access-token");
         if (accessToken == null) {
             log.warn("access token is empty");
-            throw new AuthorizedException("未携带登陆令牌");
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(401);
+            return null;
         }
-        log.info("access token ok");
         return null;
     }
 }
