@@ -17,6 +17,7 @@
 
     <modules>
         <module>eureka-client</module>
+        <module>eureka-gateway</module>
         <module>eureka-server-api</module>
         <module>eureka-server1</module>
         <module>eureka-server2</module>
