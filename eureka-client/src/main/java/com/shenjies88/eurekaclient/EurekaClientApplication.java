@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -30,13 +31,19 @@ public class EurekaClientApplication {
     @SneakyThrows
     @GetMapping("/hello")
     public String hello() {
-        return myEurekaServerClient.hello();
+        log.info("请求开始 {}", LocalDateTime.now());
+        String result = myEurekaServerClient.hello();
+        log.info("请求结束 {}", LocalDateTime.now());
+        return result;
     }
 
 
     @GetMapping("/server-list")
     public List<String> serviceList() {
-        return myEurekaServerClient.serviceUrl();
+        log.info("请求开始 {}", LocalDateTime.now());
+        List<String> result = myEurekaServerClient.serviceUrl();
+        log.info("请求结束 {}", LocalDateTime.now());
+        return result;
     }
 
     public static void main(String[] args) {
