@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @since 2020/6/18-11:19 AM
  */
 @EnableZuulProxy
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.shenjies88.eurekagateway", "com.shenjies88.eurekacommon.config"})
 public class EurekaGatewayApplication {
 
     public static void main(String[] args) {

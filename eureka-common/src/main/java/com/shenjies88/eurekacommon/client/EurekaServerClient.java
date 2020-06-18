@@ -1,5 +1,6 @@
 package com.shenjies88.eurekacommon.client;
 
+import com.shenjies88.eurekacommon.vo.HttpResultVo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,7 +20,7 @@ public interface EurekaServerClient {
      * @throws InterruptedException
      */
     @GetMapping("/hello")
-    String hello() throws InterruptedException;
+    HttpResultVo<String> hello() throws InterruptedException;
 
     /**
      * 服务列表
@@ -27,5 +28,5 @@ public interface EurekaServerClient {
      * @return 服务列表
      */
     @GetMapping("/server-list")
-    List<String> serviceUrl();
+    HttpResultVo<List<String>> serviceUrl();
 }

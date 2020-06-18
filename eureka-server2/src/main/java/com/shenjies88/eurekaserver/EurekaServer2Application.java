@@ -1,6 +1,7 @@
 package com.shenjies88.eurekaserver;
 
 import com.shenjies88.eurekacommon.client.EurekaServerClient;
+import com.shenjies88.eurekacommon.vo.HttpResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -23,15 +24,15 @@ public class EurekaServer2Application implements EurekaServerClient {
     private DiscoveryClient discoveryClient;
 
     @Override
-    public String hello() throws InterruptedException {
+    public HttpResultVo<String> hello() throws InterruptedException {
         int sleepTime = new Random().nextInt(4000);
         Thread.sleep(sleepTime);
-        return "i'am server2";
+        return HttpResultVo.success("i'am server2");
     }
 
     @Override
-    public List<String> serviceUrl() {
-        return discoveryClient.getServices();
+    public HttpResultVo<List<String>> serviceUrl() {
+        return HttpResultVo.success(discoveryClient.getServices());
     }
 
     public static void main(String[] args) {

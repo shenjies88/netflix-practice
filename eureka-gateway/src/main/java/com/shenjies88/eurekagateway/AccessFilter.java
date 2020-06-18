@@ -4,6 +4,8 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,7 @@ public class AccessFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return ZuulFilterEnum.PRE.getType();
+        return FilterConstants.PRE_TYPE;
     }
 
     @Override
@@ -39,9 +41,7 @@ public class AccessFilter extends ZuulFilter {
         Object accessToken = request.getHeader("access-token");
         if (accessToken == null) {
             log.warn("access token is empty");
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
-            return null;
+            throw new ZuulException("令牌已失效，请重新登陆", HttpStatus.UNAUTHORIZED.value(), "access token is empty");
         }
         return null;
     }

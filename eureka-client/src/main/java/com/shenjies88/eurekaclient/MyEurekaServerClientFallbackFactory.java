@@ -1,10 +1,8 @@
 package com.shenjies88.eurekaclient;
 
+import com.shenjies88.eurekacommon.vo.HttpResultVo;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
-
-import java.util.Collections;
-import java.util.List;
 
 
 /**
@@ -18,13 +16,13 @@ public class MyEurekaServerClientFallbackFactory implements FallbackFactory<MyEu
     public MyEurekaServerClient create(Throwable throwable) {
         return new MyEurekaServerClient() {
             @Override
-            public String hello() throws InterruptedException {
-                return "服务熔断";
+            public HttpResultVo<String> hello() throws InterruptedException {
+                return HttpResultVo.success("服务熔断");
             }
 
             @Override
-            public List<String> serviceUrl() {
-                return Collections.emptyList();
+            public HttpResultVo serviceUrl() {
+                return HttpResultVo.success();
             }
         };
     }

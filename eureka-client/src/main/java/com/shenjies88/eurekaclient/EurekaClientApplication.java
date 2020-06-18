@@ -1,5 +1,6 @@
 package com.shenjies88.eurekaclient;
 
+import com.shenjies88.eurekacommon.vo.HttpResultVo;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,20 +31,20 @@ public class EurekaClientApplication {
 
     @SneakyThrows
     @GetMapping("/hello")
-    public String hello() {
-        log.info("请求开始 {}", LocalDateTime.now());
-        String result = myEurekaServerClient.hello();
-        log.info("请求结束 {}", LocalDateTime.now());
-        return result;
+    public HttpResultVo<String> hello() {
+        log.info("server-list请求开始 {}", LocalDateTime.now());
+        HttpResultVo<String> resultVo = myEurekaServerClient.hello();
+        log.info("server-list请求结束 {}", LocalDateTime.now());
+        return resultVo;
     }
 
 
     @GetMapping("/server-list")
-    public List<String> serviceList() {
-        log.info("请求开始 {}", LocalDateTime.now());
-        List<String> result = myEurekaServerClient.serviceUrl();
-        log.info("请求结束 {}", LocalDateTime.now());
-        return result;
+    public HttpResultVo<List<String>> serviceList() {
+        log.info("server-list请求开始 {}", LocalDateTime.now());
+        HttpResultVo<List<String>> resultVo = myEurekaServerClient.serviceUrl();
+        log.info("server-list请求结束 {}", LocalDateTime.now());
+        return resultVo;
     }
 
     public static void main(String[] args) {
