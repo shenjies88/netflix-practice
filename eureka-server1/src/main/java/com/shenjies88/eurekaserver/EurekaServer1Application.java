@@ -1,12 +1,12 @@
-package com.shenjies88.eurekaserver2;
+package com.shenjies88.eurekaserver;
 
+import com.shenjies88.eurekaserverapi.EurekaServerClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,25 +19,25 @@ import java.util.Random;
 @RestController
 @EnableDiscoveryClient
 @SpringBootApplication
-public class EurekaServer2Application {
+public class EurekaServer1Application implements EurekaServerClient {
 
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/hello")
+    @Override
     public String hello() throws InterruptedException {
         int sleepTime = new Random().nextInt(3000);
         Thread.sleep(sleepTime);
-        return "i'am server2";
+        return "i'am server1";
     }
 
-    @RequestMapping("/")
+    @Override
     public List<String> serviceUrl() {
         return discoveryClient.getServices();
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServer2Application.class);
-        log.info("服务2启动");
+        SpringApplication.run(EurekaServer1Application.class);
+        log.info("服务1启动");
     }
 }

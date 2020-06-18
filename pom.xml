@@ -17,6 +17,7 @@
 
     <modules>
         <module>eureka-client</module>
+        <module>eureka-server-api</module>
         <module>eureka-server1</module>
         <module>eureka-server2</module>
         <module>eureka-registration-center</module>
@@ -50,14 +51,5 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

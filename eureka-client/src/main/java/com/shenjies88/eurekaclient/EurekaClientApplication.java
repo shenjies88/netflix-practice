@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,25 +20,23 @@ import java.util.List;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
+@RequestMapping("/eureka-client")
 @RestController
 public class EurekaClientApplication {
 
     @Autowired
-    private DiscoveryClient discoveryClient;
-
-    @Autowired
-    private EurekaServerClient eurekaServerClient;
+    private MyEurekaServerClient myEurekaServerClient;
 
     @SneakyThrows
     @GetMapping("/hello")
     public String hello() {
-        return eurekaServerClient.hello();
+        return myEurekaServerClient.hello();
     }
 
 
-    @GetMapping("/")
-    public List<String> serviceUrl() {
-        return discoveryClient.getServices();
+    @GetMapping("/server-list")
+    public List<String> serviceList() {
+        return myEurekaServerClient.serviceUrl();
     }
 
     public static void main(String[] args) {
