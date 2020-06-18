@@ -7,6 +7,7 @@ eureka:
   instance:
     hostname: 127.0.0.1
   client:
+    registry-fetch-interval-seconds: 3
     serviceUrl:
       defaultZone: http://localhost:1111/eureka
 feign:

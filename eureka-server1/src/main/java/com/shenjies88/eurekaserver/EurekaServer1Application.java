@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.Random;
  */
 @Slf4j
 @RestController
-@EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaServer1Application implements EurekaServerClient {
 
@@ -26,7 +24,7 @@ public class EurekaServer1Application implements EurekaServerClient {
 
     @Override
     public String hello() throws InterruptedException {
-        int sleepTime = new Random().nextInt(3000);
+        int sleepTime = new Random().nextInt(4000);
         Thread.sleep(sleepTime);
         return "i'am server1";
     }

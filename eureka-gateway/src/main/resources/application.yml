@@ -7,6 +7,7 @@ eureka:
   instance:
     hostname: 127.0.0.1
   client:
+    registry-fetch-interval-seconds: 3
     serviceUrl:
       defaultZone: http://localhost:1111/eureka
 zuul:
@@ -24,10 +25,10 @@ hystrix:
           enabled: true
         isolation:
           thread:
-            timeoutInMilliseconds: 4000
+            timeoutInMilliseconds: 6000
 ribbon:
-  ReadTimeout: 3000 # 请求处理的超时时间
-  ConnectTimeout: 1000 # 请求连接的超时时间
+  ReadTimeout: 4000 # 请求处理的超时时间
+  ConnectTimeout: 2000 # 请求连接的超时时间
   MaxAutoRetries: 0 # 对当前实例的重试次数
   MaxAutoRetriesNextServer: 0 # 切换实例的重试次数
 logging:
