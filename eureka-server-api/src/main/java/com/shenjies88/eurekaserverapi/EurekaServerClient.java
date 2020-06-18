@@ -9,7 +9,7 @@ import java.util.List;
  * @author shenjies88
  * @since 2020/6/17-6:21 PM
  */
-@RequestMapping("/eureka-server")
+@RequestMapping("/server")
 public interface EurekaServerClient {
 
     /**

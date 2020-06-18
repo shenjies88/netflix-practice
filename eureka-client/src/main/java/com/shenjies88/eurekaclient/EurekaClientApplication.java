@@ -20,7 +20,7 @@ import java.util.List;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@RequestMapping("/eureka-client")
+@RequestMapping("/client")
 @RestController
 public class EurekaClientApplication {
 
