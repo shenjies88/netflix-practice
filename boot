@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 CONDITION=99
