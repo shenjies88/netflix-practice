@@ -24,7 +24,7 @@
 
 ## 启动顺序
 
-[![NegJD1.md.png](https://s1.ax1x.com/2020/06/18/NegJD1.md.png)](https://imgchr.com/i/NegJD1)
+![启动顺序图](https://s1.ax1x.com/2020/06/18/NegJD1.png)
 
 ## 例子
 - `http://localhost:5555/my-client/client/hello/`
