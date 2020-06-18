@@ -1,4 +1,4 @@
-package com.shenjies88.eurekaserverapi;
+package com.shenjies88.eurekacommon.client;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

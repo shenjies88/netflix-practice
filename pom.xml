@@ -18,7 +18,7 @@
     <modules>
         <module>eureka-client</module>
         <module>eureka-gateway</module>
-        <module>eureka-server-api</module>
+        <module>eureka-common</module>
         <module>eureka-server1</module>
         <module>eureka-server2</module>
         <module>eureka-registration-center</module>
@@ -38,15 +38,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.71</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
 
 </project>
