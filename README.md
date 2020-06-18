@@ -24,12 +24,7 @@
 
 ## 启动顺序
 
-```mermaid
-graph LR
-eureka-registration-center --> eureka-server
-eureka-server --> eureka-client
-eureka-client --> eureka-gateway
-```
+[![NegJD1.md.png](https://s1.ax1x.com/2020/06/18/NegJD1.md.png)](https://imgchr.com/i/NegJD1)
 
 ## 例子
 - `http://localhost:5555/my-client/client/hello/`
