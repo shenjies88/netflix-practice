@@ -36,19 +36,24 @@ switchFunction() {
             build
         ;;
         2)
-            docker-compose down && docker-compose build && docker image prune -f &&  docker-compose up -d
+            docker-compose -f docker-compose-base.yml down && docker-compose -f docker-compose-base.yml build && docker image prune -f && docker-compose -f docker-compose-base.yml up -d
+            docker-compose -f docker-compose-service.yml down && docker-compose -f docker-compose-service.yml build && docker image prune -f &&  docker-compose -f docker-compose-service.yml up -d
         ;;
         3)
-            docker-compose start
+            docker-compose -f docker-compose-base.yml start
+            docker-compose -f docker-compose-service.yml start
         ;;
         4)
-            docker-compose stop
+            docker-compose -f docker-compose-service.yml stop
+            docker-compose -f docker-compose-base.yml stop
         ;;
         5)
-            docker-compose down
+            docker-compose -f docker-compose-service.yml down
+            docker-compose -f docker-compose-base.yml down
         ;;
         6)
-            docker-compose restart
+            docker-compose -f docker-compose-base.yml restart
+            docker-compose -f docker-compose-service.yml restart
         ;;
         *)
             echo '错误输入，请重新输入'
