@@ -37,6 +37,10 @@ switchFunction() {
         ;;
         2)
             docker-compose -f docker-compose-base.yml down && docker-compose -f docker-compose-base.yml build && docker image prune -f && docker-compose -f docker-compose-base.yml up -d
+            echo '<<<<<**********>>>>>'
+            echo '睡眠5秒，等待基础设施启动完成'
+            echo '<<<<<**********>>>>>'
+            sleep 5
             docker-compose -f docker-compose-service.yml down && docker-compose -f docker-compose-service.yml build && docker image prune -f &&  docker-compose -f docker-compose-service.yml up -d
         ;;
         3)
