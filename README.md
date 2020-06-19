@@ -23,7 +23,7 @@
 
 - 所有服务注册到eureka注册中心
 - 网关作为唯一对外的服务
-- 调用关系:网关->消费者->服务
+- 调用关系：`网关->消费者->服务`
 - 除了`404`,所有异常均抛出`http200`，异常`code`由自定义业务`code`
 - 配置写在 [配置仓库](https://gitee.com/shenjies88/spring-cloud-config-repo.git) 动态更新
 
