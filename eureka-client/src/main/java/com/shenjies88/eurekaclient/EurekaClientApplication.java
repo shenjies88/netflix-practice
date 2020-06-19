@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.shenjies88.eurekaclient", "com.shenjies88.eurekacommon.config", "com.shenjies88.eurekacommon.exception"})
 @RequestMapping("/client")
 @RestController
 public class EurekaClientApplication {

@@ -17,7 +17,7 @@ import java.util.Random;
  */
 @Slf4j
 @RestController
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.shenjies88.eurekaserver", "com.shenjies88.eurekacommon.config", "com.shenjies88.eurekacommon.exception"})
 public class EurekaServer1Application implements EurekaServerClient {
 
     @Autowired
