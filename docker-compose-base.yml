@@ -1,0 +1,24 @@
+version: '3'
+services:
+  eureka-registration-center:
+    image: eureka-registration-center:v1
+    container_name: eureka-registration-center
+    build:
+      context: ./eureka-registration-center/
+      dockerfile: Dockerfile
+    ports:
+      - 1111:1111
+    networks:
+      - eureka-net
+  eureka-config-server:
+    image: eureka-config-server:v1
+    container_name: eureka-config-server
+    build:
+      context: ./eureka-config-server/
+      dockerfile: Dockerfile
+    networks:
+      - eureka-net
+    depends_on:
+      - eureka-registration-center
+networks:
+  eureka-net:

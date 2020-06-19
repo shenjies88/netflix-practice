@@ -1,6 +1,0 @@
-spring:
-  cloud:
-    config:
-      uri: http://eureka-config-server:7001/
-      label: master
-      profile: docker
