@@ -1,0 +1,16 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: eureka-server2
+  cloud:
+    config:
+      uri: http://localhost:7001/
+      label: master
+#eureka:
+#  instance:
+#    hostname: 127.0.0.1
+#    appname: eureka-server
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:1111/eureka/

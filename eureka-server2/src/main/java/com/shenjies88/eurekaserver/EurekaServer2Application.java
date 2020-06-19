@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Random;
  * @author shenjies88
  */
 @Slf4j
+@RefreshScope
 @RestController
 @SpringBootApplication(scanBasePackages = {"com.shenjies88.eurekaserver", "com.shenjies88.eurekacommon.config", "com.shenjies88.eurekacommon.exception"})
 public class EurekaServer2Application implements EurekaServerClient {

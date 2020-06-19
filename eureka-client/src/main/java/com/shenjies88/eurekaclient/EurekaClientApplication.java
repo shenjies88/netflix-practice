@@ -34,9 +34,9 @@ public class EurekaClientApplication {
     @SneakyThrows
     @GetMapping("/hello")
     public HttpResultVo<String> hello() {
-        log.info("server-list请求开始 {}", LocalDateTime.now());
+        log.info("hello-list请求开始 {}", LocalDateTime.now());
         HttpResultVo<String> resultVo = myEurekaServerClient.hello();
-        log.info("server-list请求结束 {}", LocalDateTime.now());
+        log.info("hello-list请求结束 {}", LocalDateTime.now());
         return resultVo;
     }
 

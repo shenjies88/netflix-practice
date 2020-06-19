@@ -9,7 +9,7 @@
 - eureka-server2 服务实例2 端口`8082`
 - eureka-config-server 配置中心 端口`7001`
 - eureka-common 公共定义
-
+- [配置仓库](https://gitee.com/shenjies88/spring-cloud-config-repo.git)
 ## 使用模块
 
 - eureka
