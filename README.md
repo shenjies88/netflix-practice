@@ -2,11 +2,12 @@
 
 ## 项目说明
 
-- eureka-client 消费者
-- eureka-gateway 服务网关
-- eureka-registration-center 单例注册中心
-- eureka-server1 服务实例1
-- eureka-server2 服务实例2
+- eureka-registration-center 单例注册中心 端口`1111`
+- eureka-gateway 服务网关 端口`5555`
+- eureka-client 消费者 端口`8080`
+- eureka-server1 服务实例1 端口`8081`
+- eureka-server2 服务实例2 端口`8082`
+- eureka-config-server 配置中心 端口`7001`
 - eureka-common 公共定义
 
 ## 使用模块
@@ -16,6 +17,7 @@
 - ribbon
 - hystrix
 - zuul
+- config-server
 
 ## 主要逻辑
 

@@ -25,7 +25,7 @@ import java.io.InputStream;
 @Component
 public class ServiceFallback implements FallbackProvider {
 
-    private static final HttpResultVo result = HttpResultVo.failure("");
+    private static final HttpResultVo RESULT = HttpResultVo.failure("");
 
     @Override
     public String getRoute() {
@@ -61,9 +61,9 @@ public class ServiceFallback implements FallbackProvider {
 
             @Override
             public InputStream getBody() throws IOException {
-                result.setMsg(message);
-                result.setCode(status.value());
-                return new ByteArrayInputStream(JSON.toJSONBytes(result));
+                RESULT.setMsg(message);
+                RESULT.setCode(status.value());
+                return new ByteArrayInputStream(JSON.toJSONBytes(RESULT));
             }
 
             @Override

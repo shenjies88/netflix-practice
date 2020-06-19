@@ -7,7 +7,14 @@ spring:
     config:
       server:
         git:
-          uri: http://git.oschina.net/didispace/SpringCloud-Learning/
-          searchPaths: spring_cloud_in_action/config-repo
-          username:
-          password:
+          uri: https://gitee.com/shenjies88/spring-cloud-config-repo
+          searchPaths: config-repo
+          username: shenjies88
+          password: ab1234567890
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    registry-fetch-interval-seconds: 3
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka

@@ -1,0 +1,6 @@
+eureka:
+  instance:
+    hostname: eureka-config-server
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-registration-center:1111/eureka
