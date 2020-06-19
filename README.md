@@ -1,4 +1,4 @@
-# Spring Boot Netflix Practice
+# Spring Cloud Netflix Practice
 
 ## 项目说明
 
