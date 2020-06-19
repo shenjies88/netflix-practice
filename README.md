@@ -1,5 +1,9 @@
 # Spring Cloud Netflix Practice
 
+## 版本
+- SpringBoot `2.2.8.RELEASE`
+- SpringCloud `Hoxton.SR5`
+
 ## 项目说明
 
 - eureka-registration-center 单例注册中心 端口`1111`
