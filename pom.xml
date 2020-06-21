@@ -23,6 +23,7 @@
         <module>eureka-server2</module>
         <module>eureka-registration-center</module>
         <module>eureka-config-server</module>
+        <module>stream-hello</module>
     </modules>
 
     <properties>
